@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageType>Template</PackageType>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -32,7 +32,7 @@
     <PropertyGroup>
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
-        <ContentTargetFolders>Templates</ContentTargetFolders>
+        <ContentTargetFolders>content</ContentTargetFolders>
     </PropertyGroup>
 
     <ItemGroup>
