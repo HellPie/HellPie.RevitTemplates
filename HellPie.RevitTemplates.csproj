@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <PackageType>Template</PackageType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>HellPie.RevitTemplates</PackageId>
+        <PackageVersion>2020.0.0</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Revit Template Pack</Title>
+        <Description>Templates to use when creating a library AddIn for Autodesk Revit.</Description>
+        <Authors>Diego Rossi (https://github.com/HellPie)</Authors>
+        <Copyright>Copyright © Diego Rossi (https://github.com/HellPie)</Copyright>
+        <PackageTags>dotnet-new;templates;revit</PackageTags>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <PackageProjectUrl>https://github.com/HellPie/HellPie.RevitTemplates</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/HellPie/HellPie.RevitTemplates/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/HellPie/HellPie.RevitTemplates.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>Templates</ContentTargetFolders>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Templates\**\*" Exclude="Templates\**\bin\**;Templates\**\obj\**" />
+        <Compile Remove="**\*" />
+    </ItemGroup>
+</Project>
