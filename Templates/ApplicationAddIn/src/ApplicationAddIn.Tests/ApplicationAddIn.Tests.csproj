@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\ApplicationAddIn.props" Label="Global Configuration" />
+
+    <PropertyGroup Label="Information">
+        <Description>NUnit testing for APPLICATION_ADDIN_NAME.</Description>
+    </PropertyGroup>
+
+    <ItemGroup Label="Dependencies">
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+        <PackageReference Include="NUnit" Version="3.12.0" />
+    </ItemGroup>
+
+    <PropertyGroup Label="Build Properties">
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+</Project>
