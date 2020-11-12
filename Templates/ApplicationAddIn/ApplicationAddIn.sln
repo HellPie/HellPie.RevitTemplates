@@ -40,10 +40,10 @@ EndProject
 Global
     GlobalSection(NestedProjects) = preSolution
         {00000000-0000-0000-0000-000000000011} = {00000000-0000-0000-0000-000000000001}
-        #if (Tests)
+#if (Tests)
         {00000000-0000-0000-0000-000000000012} = {00000000-0000-0000-0000-000000000002}
         {00000000-0000-0000-0000-000000000022} = {00000000-0000-0000-0000-000000000002}
-        #endif
+#endif
     EndGlobalSection
 
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
