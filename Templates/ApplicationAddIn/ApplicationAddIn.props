@@ -1,13 +1,14 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
+    <PropertyGroup Label="Information">
         <Product>APPLICATION_ADDIN_NAME</Product>
         <Company>APPLICATION_VENDOR_DESCRIPTION</Company>
         <Authors Condition="$(HasAuthors)">APPLICATION_AUTHORS</Authors>
         <Copyright>Copyright © APPLICATION_COPYRIGHT_YEARS APPLICATION_VENDOR_DESCRIPTION</Copyright>
         <Version Condition="!$(HasSplitVersion)">APPLICATION_VERSION_NUMBER</Version>
+        <RevitVersion>REVIT_VERSION</RevitVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition="$(HasSplitVersion)">
+    <PropertyGroup Condition="$(HasSplitVersion)" Label="Versioning">
         <VersionPrefix>APPLICATION_VERSION_NUMBER</VersionPrefix>
         <VersionSuffix>APPLICATION_VERSION_SUFFIX</VersionSuffix>
 
@@ -17,30 +18,30 @@
         <!--/+:msbuild-conditional:noEmit -->
     </PropertyGroup>
 
-    <PropertyGroup>
+    <PropertyGroup Label="Language and Framework">
         <TargetFramework>TARGET_FRAMEWORK</TargetFramework>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <!--/-:msbuild-conditional:noEmit -->
-    <PropertyGroup>
+    <PropertyGroup Label="Default Build Properties">
         <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
         <Platform Condition="'$(Platform)' == ''">x64</Platform>
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
-    <PropertyGroup>
+    <PropertyGroup Label="Global Build Properties">
         <WarningLevel>4</WarningLevel>
         <CodeAnalysisRuleSet Condition="Exists('$(ProjectName).ruleset')">$(ProjectName).ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" Label="Debug Build Properties">
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolsPackageFormat>snupkg</SymbolsPackageFormat>
         <IncludeSource>true</IncludeSource>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" Label="Release Build Properties">
         <Optimize>true</Optimize>
         <WarningsAsErrors>true</WarningsAsErrors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
