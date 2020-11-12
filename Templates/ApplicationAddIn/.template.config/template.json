@@ -208,6 +208,13 @@
             "defaultValue": "true"
         },
 
+        "SkipRestore": {
+            "type": "parameter",
+            "description": "Skip restoring NuGet packages required by this solution.",
+            "datatype": "bool",
+            "defaultValue": "false"
+        },
+
         "CopyrightYear": {
             "type": "generated",
             "generator": "now",
@@ -225,5 +232,19 @@
             "type": "computed",
             "value": "(VersionSuffix != \"\")"
         }
-    }
+    },
+
+    "postActions": [
+        {
+            "condition": "(!SkipRestore)",
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "description": "Restore NuGet packages required by this solution.",
+            "continueOnError": true,
+            "manualInstructions": [
+                {
+                    "text": "Run \"dotnet restore\""
+                }
+            ]
+        }
+    ]
 }
