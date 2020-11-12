@@ -23,13 +23,13 @@
         <StartProgram Condition="'$(Configuration)' == 'Debug'">$(ProgramW6432)\Autodesk\Revit $(RevitVersion)\Revit.exe</StartProgram>
     </PropertyGroup>
 
-    <Target Name="AfterBuild" Label="Execution">
-        <CallTarget Targets="AfterClean" />
+    <Target Name="ExecuteOrPackage" AfterTargets="AfterBuild" Label="Execution">
+        <CallTarget Targets="CleanAddInFiles" />
         <CallTarget Targets="RunInRevit" Condition="'$(Configuration)' == 'Debug'" />
         <CallTarget Targets="BuildArchive" Condition="'$(Configuration)' == 'Release'" />
     </Target>
 
-    <Target Name="AfterClean" Label="Build Cleanup">
+    <Target Name="CleanAddInFiles" AfterTargets="AfterClean" Label="Build Cleanup">
         <Delete Files="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName).addin" />
         <RemoveDir Directories="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)" />
     </Target>
