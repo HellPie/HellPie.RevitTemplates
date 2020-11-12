@@ -12,10 +12,8 @@
         <VersionPrefix>APPLICATION_VERSION_NUMBER</VersionPrefix>
         <VersionSuffix>APPLICATION_VERSION_SUFFIX</VersionSuffix>
 
-        <!--/-:msbuild-conditional:noEmit -->
         <Version Condition="'$(Configuration)' == 'Debug'">$(VersionPrefix)-$(VersionSuffix)</Version>
         <Version Condition="'$(Configuration)' == 'Release'">$(VersionPrefix)</Version>
-        <!--/+:msbuild-conditional:noEmit -->
     </PropertyGroup>
 
     <PropertyGroup Label="Language and Framework">
