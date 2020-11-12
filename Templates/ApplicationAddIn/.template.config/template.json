@@ -157,7 +157,7 @@
                     "description": "Revit 2017 with SDK update 2017.1.1."
                 }
             ],
-            "defaultValue": "2020",
+            "defaultValue": "2021",
             "replaces": "REVIT_VERSION"
         },
 
