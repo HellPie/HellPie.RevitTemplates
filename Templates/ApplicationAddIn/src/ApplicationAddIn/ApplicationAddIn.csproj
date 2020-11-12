@@ -5,10 +5,6 @@
         <Description>APPLICATION_ADDIN_DESCRIPTION</Description>
     </PropertyGroup>
 
-    <PropertyGroup Label="Build Properties">
-        <OutputType>Library</OutputType>
-    </PropertyGroup>
-
     <ItemGroup Label="Dependencies">
         <!--/-:msbuild-conditional:noEmit -->
         <PackageReference Include="Autodesk.Revit.SDK" Version="2021.0.0" Condition="'$(RevitVersion)' == '2021'"/>
@@ -21,6 +17,12 @@
     </ItemGroup>
 
     <!--/-:msbuild-conditional:noEmit -->
+    <PropertyGroup Label="Build Properties">
+        <OutputType>Library</OutputType>
+        <StartAction>Program</StartAction>
+        <StartProgram Condition="'$(Configuration)' == 'Debug'">$(ProgramW6432)\Autodesk\Revit $(RevitVersion)\Revit.exe</StartProgram>
+    </PropertyGroup>
+
     <Target Name="AfterBuild" Label="Execution">
         <CallTarget Targets="AfterClean" />
         <CallTarget Targets="RunInRevit" Condition="'$(Configuration)' == 'Debug'" />
