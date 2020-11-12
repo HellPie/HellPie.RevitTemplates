@@ -18,7 +18,7 @@
         <PackageReference Include="Autodesk.Revit.SDK" Version="2018.2.0" Condition="'$(RevitVersion)' == '2018'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2017.1.1" Condition="'$(RevitVersion)' == '2017'"/>
         <!--/+:msbuild-conditional:noEmit -->
-        <PackageReference Condition="'$(PrivateLibraries)' != ''" Include="Stain.Rainbow" Version="1.2.0" />
+        <PackageReference Condition="$(UsePrivateLibraries)" Include="Stain.Rainbow" Version="1.2.0" />
     </ItemGroup>
 
     <!--/-:msbuild-conditional:noEmit -->

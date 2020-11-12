@@ -1,13 +1,13 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <Product Condition="'$(HasProduct)' != ''">APPLICATION_PRODUCT</Product>
-        <Company Condition="'$(HasCompany)' != ''">APPLICATION_COMPANY</Company>
-        <Authors Condition="'$(HasAuthors)' != ''">APPLICATION_AUTHORS</Authors>
-        <Copyright Condition="'$(HasCopyright)' != ''">Copyright © APPLICATION_COPYRIGHT_YEARS APPLICATION_COPYRIGHT_HOLDER</Copyright>
-        <Version Condition="'$(HasSplitVersion)' == ''">APPLICATION_VERSION_NUMBER</Version>
+        <Product>APPLICATION_ADDIN_NAME</Product>
+        <Company>APPLICATION_VENDOR_DESCRIPTION</Company>
+        <Authors Condition="$(HasAuthors)">APPLICATION_AUTHORS</Authors>
+        <Copyright>Copyright © APPLICATION_COPYRIGHT_YEARS APPLICATION_VENDOR_DESCRIPTION</Copyright>
+        <Version Condition="!$(HasSplitVersion)">APPLICATION_VERSION_NUMBER</Version>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(HasSplitVersion)' != ''">
+    <PropertyGroup Condition="$(HasSplitVersion)">
         <VersionPrefix>APPLICATION_VERSION_NUMBER</VersionPrefix>
         <VersionSuffix>APPLICATION_VERSION_SUFFIX</VersionSuffix>
 
