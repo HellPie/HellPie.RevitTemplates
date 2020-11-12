@@ -3,7 +3,7 @@ using Autodesk.Revit.UI;
 using NUnit.Framework;
 
 namespace ApplicationAddIn.RevitTests {
-    public class AppTest {
+    public class SampleTest {
         [SetUp]
         public void RunBeforeTest() {
             Console.WriteLine($"Begin testing in {GetType().Name}");
