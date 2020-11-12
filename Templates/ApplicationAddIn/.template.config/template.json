@@ -68,5 +68,162 @@
     ],
 
     "symbols": {
+        "AddInName": {
+            "type": "parameter",
+            "description": "The name of the Revit AddIn shown to the user on the first AddIn load.",
+            "datatype": "string",
+            "isRequired": true,
+            "replaces": "APPLICATION_ADDIN_NAME"
+        },
+        "AddInDescription": {
+            "type": "parameter",
+            "description": "The description of the Revit AddIn shown to the user on the first AddIn load.",
+            "datatype": "string",
+            "isRequired": true,
+            "replaces": "APPLICATION_ADDIN_DESCRIPTION"
+        },
+        "VendorID": {
+            "type": "parameter",
+            "description": "The vendor ID of the Revit AddIn author.",
+            "datatype": "string",
+            "isRequired": true,
+            "replaces": "APPLICATION_VENDOR_ID"
+        },
+        "VendorDescription": {
+            "type": "parameter",
+            "description": "The vendor description of the Revit AddIn author shown to the user for contact details.",
+            "datatype": "string",
+            "isRequired": true,
+            "replaces": "APPLICATION_VENDOR_DESCRIPTION"
+        },
+
+        "Authors": {
+            "type": "parameter",
+            "description": "The names of authors contributing to this project.",
+            "datatype": "string",
+            "defaultValue": "",
+            "replaces": "APPLICATION_AUTHORS"
+        },
+
+        "Framework": {
+            "type": "parameter",
+            "description": "The .NET Framework version. ",
+            "datatype": "choice",
+            "choices": [
+                {
+                    "choice": "net4.8",
+                    "description": ".NET Framework 4.8. Minimum requirement for AddIns targeting Revit 2021 and later."
+                },
+                {
+                    "choice": "net4.7.2",
+                    "description": ".NET Framework 4.8. Minimum requirement for AddIns targeting Revit 2019 through Revit 2020.1."
+                },
+                {
+                    "choice": "net4.6.2",
+                    "description": ".NET Framework 4.6.2. Supported by Revit 2017 through Revit 2018.2."
+                },
+                {
+                    "choice": "net4.5.2",
+                    "description": ".NET Framework 4.5.2. Minimum requirement for AddIns targeting Revit 2017 through Revit 2018.2."
+                }
+            ],
+            "defaultValue": "net4.8",
+            "replaces": "TARGET_FRAMEWORK"
+        },
+        "Revit": {
+            "type": "parameter",
+            "description": "The version of Revit.",
+            "datatype": "choice",
+            "choices": [
+                {
+                    "choice": "2021",
+                    "description": "Revit 2021."
+                },
+                {
+                    "choice": "2020",
+                    "description": "Revit 2020 with SDK update 2020.2.1."
+                },
+                {
+                    "choice": "2019",
+                    "description": "Revit 2019 with SDK update 2019.2.2."
+                },
+                {
+                    "choice": "2018",
+                    "description": "Revit 2018 with SDK update 2018.2."
+                },
+                {
+                    "choice": "2017",
+                    "description": "Revit 2017 with SDK update 2017.1.1."
+                }
+            ],
+            "defaultValue": "2020",
+            "replaces": "REVIT_VERSION"
+        },
+
+        "VersionNumber": {
+            "type": "parameter",
+            "description": "The current version of the AddIn.",
+            "datatype": "string",
+            "defaultValue": "0.0.0",
+            "replaces": "APPLICATION_VERSION_NUMBER"
+        },
+        "VersionSuffix": {
+            "type": "parameter",
+            "description": "The suffix added to the version number on debug builds.",
+            "datatype": "string",
+            "defaultValue": "",
+            "replaces": "APPLICATION_VERSION_SUFFIX"
+        },
+
+        "UsePrivateLibraries": {
+            "type": "parameter",
+            "description": "Whether to include references to packages within company NuGet repository.",
+            "datatype": "bool",
+            "defaultValue": "false"
+        },
+
+
+        "EditorConfig": {
+            "type": "parameter",
+            "description": "Include files used by EditorConfig for code style sharing.",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "Git": {
+            "type": "parameter",
+            "description": "Include files used by Git for VCS integration.",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "Repository": {
+            "type": "parameter",
+            "description": "Include files commonly used in open source projects.",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "Tests": {
+            "type": "parameter",
+            "description": "Include C# projects for Unit testing both standalone and in Revit.",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+
+        "CopyrightYear": {
+            "type": "generated",
+            "generator": "now",
+            "replaces": "APPLICATION_COPYRIGHT_YEARS",
+            "parameters": {
+                "format": "yyyy"
+            }
+        },
+
+        "HasAuthors": {
+            "type": "computed",
+            "value": "(Authors != \"\")"
+        },
+        "HasSplitVersion": {
+            "type": "computed",
+            "value": "(VersionSuffix != \"\")"
+        }
     }
 }
