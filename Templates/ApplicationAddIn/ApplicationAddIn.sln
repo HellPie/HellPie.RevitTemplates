@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+
+#if (EditorConfig || Git || Repository)
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{00000000-0000-0000-0000-00000001}"
+    ProjectSection(SolutionItems) = preProject
+        #if(EditorConfig)
+        "Editor Config"=.editorconfig
+        #endif
+        #if(Git)
+        "Git Ignores"=.gitignore
+        "Git Attributes=.gitattributes
+        #endif
+        #if(Repository)
+        "Read Me"=README.md
+        "License"=LICENSE
+        #endif
+    EndProjectSection
+EndProject
+#endif
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{00000000-0000-0000-0000-00000001}"
+EndProject
+
+#if (Tests)
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{00000000-0000-0000-0000-00000002}"
+EndProject
+#endif
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAddIn", "src\ApplicationAddIn\ApplicationAddIn.csproj", "{00000000-0000-0000-0000-000000000011}"
+EndProject
+
+#if(Tests)
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAddIn.Tests", "src\ApplicationAddIn.Tests\ApplicationAddIn.Tests.csproj", "{00000000-0000-0000-0000-000000000012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAddIn.RevitTests", "src\ApplicationAddIn.RevitTests\ApplicationAddIn.RevitTests.csproj", "{00000000-0000-0000-0000-000000000022}"
+EndProject
+#endif
+
+Global
+    GlobalSection(NestedProjects) = preSolution
+        {00000000-0000-0000-0000-000000000011} = {00000000-0000-0000-0000-000000000001}
+        #if (Tests)
+        {00000000-0000-0000-0000-000000000012} = {00000000-0000-0000-0000-000000000002}
+        {00000000-0000-0000-0000-000000000022} = {00000000-0000-0000-0000-000000000002}
+        #endif
+    EndGlobalSection
+
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|x64 = Debug|x64
+        Release|x64 = Release|x64
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {00000000-0000-0000-0000-000000000011}.Debug|x64.ActiveCfg = Debug|x64
+        {00000000-0000-0000-0000-000000000011}.Debug|x64.Build.0 = Debug|x64
+        {00000000-0000-0000-0000-000000000011}.Release|x64.ActiveCfg = Release|x64
+        {00000000-0000-0000-0000-000000000011}.Release|x64.Build.0 = Release|x64
+        #if (Tests)
+        {00000000-0000-0000-0000-000000000012}.Debug|x64.ActiveCfg = Debug|x64
+        {00000000-0000-0000-0000-000000000012}.Debug|x64.Build.0 = Debug|x64
+        {00000000-0000-0000-0000-000000000012}.Release|x64.ActiveCfg = Release|x64
+        {00000000-0000-0000-0000-000000000012}.Release|x64.Build.0 = Release|x64
+        {00000000-0000-0000-0000-000000000022}.Debug|x64.ActiveCfg = Debug|x64
+        {00000000-0000-0000-0000-000000000022}.Debug|x64.Build.0 = Debug|x64
+        {00000000-0000-0000-0000-000000000022}.Release|x64.ActiveCfg = Release|x64
+        {00000000-0000-0000-0000-000000000022}.Release|x64.Build.0 = Release|x64
+        #endif
+    EndGlobalSection
+EndGlobal

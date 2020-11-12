@@ -1,0 +1,72 @@
+﻿{
+    "$schema": "http://json.schemastore.org/template",
+
+    "name": "Revit Application AddIn",
+    "description": "Template to use when creating a new External Application AddIn for Autodesk Revit.",
+    "author": "Diego Rossi (https://github.com/HellPie)",
+
+    "shortName": "revit-app",
+    "defaultName": "RevitApplicationAddIn",
+
+    "groupIdentity": "HellPie.RevitTemplates",
+    "identity": "HellPie.RevitTemplates.ApplicationAddIn",
+
+    "classifications": [
+        "Library",
+        "Revit AddIn",
+        "External Application"
+    ],
+
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+
+    "sourceName": "ApplicationAddIn",
+    "preferNameDirectory": true,
+    "placeholderFilename": ".gitkeep",
+
+    "guids": [
+        "00000000-0000-0000-0000-000000000001",
+        "00000000-0000-0000-0000-000000000002",
+        "00000000-0000-0000-0000-000000000011",
+        "00000000-0000-0000-0000-000000000012",
+        "00000000-0000-0000-0000-000000000022"
+    ],
+
+    "sources": [
+        {
+            "modifiers": [
+                {
+                    "condition": "(!EditorConfig)",
+                    "exclude": [
+                        ".editorconfig"
+                    ]
+                },
+                {
+                    "condition": "(!Git)",
+                    "exclude": [
+                        ".gitignore",
+                        ".gitattributes"
+                    ]
+                },
+                {
+                    "condition": "(!Repository)",
+                    "exclude": [
+                        "README.md",
+                        "LICENSE"
+                    ]
+                },
+                {
+                    "condition": "(!Tests)",
+                    "exclude": [
+                        "src/*Tests/*"
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "symbols": {
+    }
+}

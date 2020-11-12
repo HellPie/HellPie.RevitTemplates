@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\ApplicationAddIn.props" />
+
+    <PropertyGroup>
+        <Description>APPLICATION_ADDIN_DESCRIPTION</Description>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RevitVersion>REVIT_VERSION</RevitVersion>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!--/-:msbuild-conditional:noEmit -->
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2021.0.0" Condition="'$(RevitVersion)' == '2021'"/>
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2020.2.1" Condition="'$(RevitVersion)' == '2020'"/>
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2019.2.2" Condition="'$(RevitVersion)' == '2019'"/>
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2018.2.0" Condition="'$(RevitVersion)' == '2018'"/>
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2017.1.1" Condition="'$(RevitVersion)' == '2017'"/>
+        <!--/+:msbuild-conditional:noEmit -->
+        <PackageReference Condition="'$(PrivateLibraries)' != ''" Include="Stain.Rainbow" Version="1.2.0" />
+    </ItemGroup>
+
+    <!--/-:msbuild-conditional:noEmit -->
+    <!-- Post Build Events -->
+    <Target Name="AfterBuild">
+        <!-- Clean previous builds -->
+        <CallTarget Targets="AfterClean" />
+        <!-- Prepare for execution when in debug mode -->
+        <CallTarget Targets="RunInRevit" Condition="'$(Configuration)' == 'Debug'" />
+        <!-- Prepare production build when in release mode -->
+        <CallTarget Targets="BuildArchive" Condition="'$(Configuration)' == 'Release'" />
+    </Target>
+
+    <!-- Cleanup Events -->
+    <Target Name="AfterClean">
+        <Delete Files="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName).addin" />
+        <RemoveDir Directories="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)" />
+    </Target>
+
+    <!-- Target Execution in Revit -->
+    <Target Name="RunInRevit">
+        <!-- Copy global files -->
+        <Copy SourceFiles="$(ProjectDir)$(ProjectName).addin" DestinationFolder="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)" />
+        <MakeDir Directories="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)" />
+        <MakeDir Directories="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)\Resources" Condition="Exists('$(ProjectDir)Resources')" />
+        <!-- Select files to be copied -->
+        <ItemGroup>
+            <Libraries Include="$(ProjectDir)$(OutputPath)*.dll" />
+            <Libraries Remove="$(ProjectDir)$(OutputPath)RevitAPI*.dll" />
+            <Libraries Remove="$(ProjectDir)$(OutputPath)AdWindows*.dll" />
+            <Resources Include="$(ProjectDir)Resources\*.*" Condition="Exists('$(ProjectDir)Resources')" />
+        </ItemGroup>
+        <!-- Copy files to Revit Addins directory -->
+        <Copy SourceFiles="@(Libraries)" DestinationFolder="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)" />
+        <Copy SourceFiles="@(Resources)" DestinationFolder="$(APPDATA)\Autodesk\REVIT\Addins\$(RevitVersion)\$(ProjectName)\Resources" />
+    </Target>
+
+    <!-- Target Release as Zip Archive -->
+    <Target Name="BuildArchive">
+        <!-- Configure temporary build directories -->
+        <MakeDir Directories="$(TEMP)\$(ProjectGuid)" />
+        <MakeDir Directories="$(TEMP)\$(ProjectGuid)\$(ProjectName)" />
+        <MakeDir Directories="$(TEMP)\$(ProjectGuid)\$(ProjectName)\Resources" Condition="Exists('$(ProjectDir)Resources')" />
+        <!-- Select files to be copied -->
+        <ItemGroup>
+            <AddInFile Include="$(ProjectDir)$(ProjectName).addin" />
+            <Libraries Include="$(ProjectDir)$(OutputPath)*.dll" />
+            <Libraries Remove="$(ProjectDir)$(OutputPath)RevitAPI*.dll" />
+            <Libraries Remove="$(ProjectDir)$(OutputPath)AdWindows.dll" />
+            <Resources Include="$(ProjectDir)Resources\*.*" Condition="Exists('$(ProjectDir)Resources')" />
+        </ItemGroup>
+        <!-- Copy files to temporary directory -->
+        <Copy SourceFiles="@(AddInFile)" DestinationFolder="$(TEMP)\$(ProjectGuid)" />
+        <Copy SourceFiles="@(Libraries)" DestinationFolder="$(TEMP)\$(ProjectGuid)\$(ProjectName)" />
+        <Copy SourceFiles="@(Resources)" DestinationFolder="$(TEMP)\$(ProjectGuid)\$(ProjectName)\Resources" />
+        <!-- Compress final output into a Zip Archive -->
+        <ZipDirectory DestinationFile="$(ProjectDir)$(OutputPath)$(ProjectName)-$(Version)-Revit_$(RevitVersion).zip" Overwrite="true" SourceDirectory="$(TEMP)\$(ProjectGuid)" />
+        <!-- Cleanup temporary directory -->
+        <RemoveDir Directories="$(TEMP)\$(ProjectGuid)" />
+    </Target>
+    <!--/+:msbuild-conditional:noEmit -->
+</Project>

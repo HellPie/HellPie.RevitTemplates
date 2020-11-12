@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+        <Name>APPLICATION_ADDIN_NAME</Name>
+        <Description>APPLICATION_ADDIN_DESCRIPTION</Description>
+        <Assembly>ApplicationAddIn/ApplicationAddIn.dll</Assembly>
+        <FullClassName>ApplicationAddIn.App</FullClassName>
+        <ClientId>00000000-0000-0000-0000-000000000011</ClientId>
+        <VendorId>APPLICATION_VENDOR_ID</VendorId>
+        <VendorDescription>APPLICATION_VENDOR_DESCRIPTION</VendorDescription>
+	</AddIn>
+</RevitAddIns>
