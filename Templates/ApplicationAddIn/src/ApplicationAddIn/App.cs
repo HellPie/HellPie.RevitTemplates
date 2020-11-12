@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Autodesk.Revit.UI;
 
-namespace HellPie.RevitTemplates.Templates.ApplicationAddIn.src.ApplicationAddIn {
+namespace ApplicationAddIn {
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
     internal class App : IExternalApplication {
         /// <inheritdoc />
