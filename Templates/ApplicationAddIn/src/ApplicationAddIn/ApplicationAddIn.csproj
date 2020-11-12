@@ -6,17 +6,17 @@
     </PropertyGroup>
 
     <ItemGroup Label="Dependencies">
-        <!--/-:msbuild-conditional:noEmit -->
+<!--/-:msbuild-conditional:noEmit -->
         <PackageReference Include="Autodesk.Revit.SDK" Version="2021.0.0" Condition="'$(RevitVersion)' == '2021'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2020.2.1" Condition="'$(RevitVersion)' == '2020'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2019.2.2" Condition="'$(RevitVersion)' == '2019'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2018.2.0" Condition="'$(RevitVersion)' == '2018'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2017.1.1" Condition="'$(RevitVersion)' == '2017'"/>
-        <!--/+:msbuild-conditional:noEmit -->
+<!--/+:msbuild-conditional:noEmit -->
         <PackageReference Condition="$(UsePrivateLibraries)" Include="Stain.Rainbow" Version="1.2.0" />
     </ItemGroup>
 
-    <!--/-:msbuild-conditional:noEmit -->
+<!--/-:msbuild-conditional:noEmit -->
     <PropertyGroup Label="Build Properties">
         <OutputType>Library</OutputType>
         <StartAction>Program</StartAction>
@@ -65,5 +65,5 @@
         <ZipDirectory DestinationFile="$(ProjectDir)$(OutputPath)$(ProjectName)-$(Version)-Revit_$(RevitVersion).zip" Overwrite="true" SourceDirectory="$(TEMP)\$(ProjectGuid)" />
         <RemoveDir Directories="$(TEMP)\$(ProjectGuid)" />
     </Target>
-    <!--/+:msbuild-conditional:noEmit -->
+<!--/+:msbuild-conditional:noEmit -->
 </Project>

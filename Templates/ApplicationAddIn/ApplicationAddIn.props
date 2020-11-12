@@ -21,7 +21,7 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
-    <!--/-:msbuild-conditional:noEmit -->
+<!--/-:msbuild-conditional:noEmit -->
     <PropertyGroup Label="Default Build Properties">
         <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
         <Platform Condition="'$(Platform)' == ''">x64</Platform>
@@ -44,5 +44,5 @@
         <WarningsAsErrors>true</WarningsAsErrors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    <!--/+:msbuild-conditional:noEmit -->
+<!--/+:msbuild-conditional:noEmit -->
 </Project>

@@ -6,7 +6,7 @@
 
     <PropertyGroup>
         <PackageId>HellPie.RevitTemplates</PackageId>
-        <PackageVersion>2020.0.1</PackageVersion>
+        <PackageVersion>2020.0.2</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup>
