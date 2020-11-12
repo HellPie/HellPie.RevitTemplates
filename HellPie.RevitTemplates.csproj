@@ -33,10 +33,11 @@
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Templates\**\*" Exclude="Templates\**\bin\**;Templates\**\obj\**" />
+        <Content Include="Templates\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
         <Compile Remove="**\*" />
     </ItemGroup>
 </Project>
