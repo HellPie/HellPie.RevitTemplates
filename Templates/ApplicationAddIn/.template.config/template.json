@@ -165,7 +165,7 @@
             "type": "parameter",
             "description": "The current version of the AddIn.",
             "datatype": "string",
-            "defaultValue": "0.0.0",
+            "defaultValue": "0.0.1",
             "replaces": "APPLICATION_VERSION_NUMBER"
         },
         "VersionSuffix": {
