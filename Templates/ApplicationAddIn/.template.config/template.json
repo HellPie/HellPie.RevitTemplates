@@ -117,7 +117,7 @@
                 },
                 {
                     "choice": "net4.7.2",
-                    "description": ".NET Framework 4.8. Minimum requirement for AddIns targeting Revit 2019 through Revit 2020.1."
+                    "description": ".NET Framework 4.7.2. Minimum requirement for AddIns targeting Revit 2019 through Revit 2020.1."
                 },
                 {
                     "choice": "net4.6.2",
