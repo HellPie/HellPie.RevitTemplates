@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 
 #if (EditorConfig || Git || Repository)
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{00000000-0000-0000-0000-000000000000}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "01 - Solution Files", "{00000000-0000-0000-0000-000000000000}"
     ProjectSection(SolutionItems) = preProject
 #if (EditorConfig)
         "Editor Config"=.editorconfig
@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 EndProject
 #endif
 
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{00000000-0000-0000-0000-000000000001}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "02 - Sources", "{00000000-0000-0000-0000-000000000001}"
 EndProject
 
 #if (Tests)
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{00000000-0000-0000-0000-000000000002}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "03 - Tests", "{00000000-0000-0000-0000-000000000002}"
 EndProject
 #endif
 
