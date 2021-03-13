@@ -1,5 +1,5 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup Label="Information">
+    <PropertyGroup Label="Project Information">
         <Product>APPLICATION_ADDIN_NAME</Product>
         <Company>APPLICATION_VENDOR_DESCRIPTION</Company>
         <Authors Condition="$(HasAuthors)">APPLICATION_AUTHORS</Authors>
@@ -8,7 +8,7 @@
         <RevitVersion>REVIT_VERSION</RevitVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition="$(HasSplitVersion)" Label="Versioning">
+    <PropertyGroup Condition="$(HasSplitVersion)" Label="Version Information">
         <VersionPrefix>APPLICATION_VERSION_NUMBER</VersionPrefix>
         <VersionSuffix>APPLICATION_VERSION_SUFFIX</VersionSuffix>
 
@@ -22,7 +22,8 @@
     </PropertyGroup>
 
 <!--/-:msbuild-conditional:noEmit -->
-    <PropertyGroup Label="Default Build Properties">
+    <PropertyGroup Label="Shared Build Properties">
+        <Prefer32Bit>false</Prefer32Bit>
         <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
         <Platform Condition="'$(Platform)' == ''">x64</Platform>
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>

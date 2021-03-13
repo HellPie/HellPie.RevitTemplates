@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\..\ApplicationAddIn.props" Label="Global Configuration" />
 
-    <PropertyGroup Label="Information">
+    <PropertyGroup Label="Project Information">
         <Description>APPLICATION_ADDIN_DESCRIPTION</Description>
     </PropertyGroup>
 

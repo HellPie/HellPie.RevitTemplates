@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\..\ApplicationAddIn.props" Label="Global Configuration" />
 
-    <PropertyGroup Label="Information">
+    <PropertyGroup Label="Project Information">
         <Description>NUnit testing using the Geberit Revit Test Runner for APPLICATION_ADDIN_NAME.</Description>
     </PropertyGroup>
 
