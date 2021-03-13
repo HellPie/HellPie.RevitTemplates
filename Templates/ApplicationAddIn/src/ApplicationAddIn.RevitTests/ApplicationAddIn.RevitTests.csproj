@@ -7,14 +7,14 @@
 
     <ItemGroup Label="Dependencies">
 <!--/-:msbuild-conditional:noEmit -->
-        <PackageReference Include="Autodesk.Revit.SDK" Version="2021.0.0" Condition="'$(RevitVersion)' == '2021'"/>
+        <PackageReference Include="Autodesk.Revit.SDK" Version="2021.0.1" Condition="'$(RevitVersion)' == '2021'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2020.2.1" Condition="'$(RevitVersion)' == '2020'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2019.2.2" Condition="'$(RevitVersion)' == '2019'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2018.2.0" Condition="'$(RevitVersion)' == '2018'"/>
         <PackageReference Include="Autodesk.Revit.SDK" Version="2017.1.1" Condition="'$(RevitVersion)' == '2017'"/>
 <!--/+:msbuild-conditional:noEmit -->
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
-        <PackageReference Include="NUnit" Version="3.12.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+        <PackageReference Include="NUnit" Version="3.13.1" />
     </ItemGroup>
 
     <PropertyGroup Label="Build Properties">
@@ -22,4 +22,14 @@
         <StartAction>Program</StartAction>
         <StartProgram>$(ProgramW6432)\Autodesk\Revit $(RevitVersion)\Revit.exe</StartProgram>
     </PropertyGroup>
+
+<!--/-:msbuild-conditional:noEmit -->
+    <PropertyGroup Label="Preprocessor Constants">
+        <DefineConstants Condition="'$(RevitVersion)' == '2021'">REVIT_2021</DefineConstants>
+        <DefineConstants Condition="'$(RevitVersion)' == '2020'">REVIT_2020</DefineConstants>
+        <DefineConstants Condition="'$(RevitVersion)' == '2019'">REVIT_2019</DefineConstants>
+        <DefineConstants Condition="'$(RevitVersion)' == '2018'">REVIT_2018</DefineConstants>
+        <DefineConstants Condition="'$(RevitVersion)' == '2017'">REVIT_2017</DefineConstants>
+    </PropertyGroup>
+<!--/+:msbuild-conditional:noEmit -->
 </Project>
