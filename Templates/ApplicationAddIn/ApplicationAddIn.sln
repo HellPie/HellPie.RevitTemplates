@@ -19,6 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "01 - Solu
 EndProject
 #endif
 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Sources", "99 - Shared Sources", "{00000000-0000-0000-0000-000000000003}"
+    ProjectSection(SolutionItems) = preProject
+        "Shared Properties" = src\ApplicationAddIn.props
+    EndProjectSection
+EndProject
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "02 - Sources", "{00000000-0000-0000-0000-000000000001}"
 EndProject
 
