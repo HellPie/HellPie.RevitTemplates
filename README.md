@@ -67,7 +67,7 @@ Trademarked referenced herein are property of their respective owners.
 This project, its sources, products and services are released under the [Apache 2.0 License](LICENSE).
 
 ```
-Copyright 2020 Diego Rossi (https://github.com/HellPie)
+Copyright 2020-2021 Diego Rossi (https://github.com/HellPie)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
